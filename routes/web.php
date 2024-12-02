@@ -17,7 +17,7 @@ Route::post('login', [LoginController::class, 'login']);
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 // Ruta para la página principal (index)
 Route::get('/', function () {
-    return view('index');  // La vista que deseas mostrar después de iniciar sesión
+    return view('peliculas.index');
 })->name('index');
 
 Route::post('/comentarios', [ComentarioController::class, 'store'])->name('comentarios.store');
@@ -25,9 +25,11 @@ Route::post('/comentarios', [ComentarioController::class, 'store'])->name('comen
 
 Route::get('/admin', [AdminController::class, 'index']);
 
+Route::get('/usuario', [UsuarioController::class, 'index'])->middleware('auth');
 
 Route::get('/pelicula/{id}', [PeliculaController::class, 'show']);
 Route::post('/pelicula/{id}/comentario', [PeliculaController::class, 'storeComentario'])->middleware('auth');
+Route::post('/pelicula/{id}/comentario', [ComentarioController::class, 'store'])->name('comentarios.store');
 
 
 Route::get('/', [PeliculaController::class, 'index']);

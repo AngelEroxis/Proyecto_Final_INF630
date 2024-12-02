@@ -110,7 +110,6 @@ class PeliculaController extends Controller
         return view('peliculas.show', compact('pelicula'));
     }
 
-    // Almacenar un nuevo comentario
     public function storeComentario(Request $request, $id)
     {
         $request->validate([
@@ -119,12 +118,12 @@ class PeliculaController extends Controller
 
         $comentario = new Comentario();
         $comentario->id_pelicula = $id;
-        $comentario->id_usuario = auth()->id(); // Obtener el ID del usuario logueado
+        $comentario->id_usuario = auth()->id();
         $comentario->Comentario = $request->comentario;
-        $comentario->Fecha = Carbon::now(); // Fecha actual
+        $comentario->Fecha = Carbon::now(); 
         $comentario->save();
 
-        return back(); // Volver a la misma página de la película
+        return back();
     }
 
 }

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Models\Comentario;
 use App\Models\Pelicula;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class ComentarioController extends Controller
@@ -12,15 +12,18 @@ class ComentarioController extends Controller
     public function store(Request $request, $id)
     {
         $request->validate([
-            'Comentario' => 'required|string|max:500',
+            'comentario' => 'required|string|max:200',
         ]);
 
-        Comentario::create([
-            'id_pelicula' => $id,
-            'id_usuario' => Auth::id(), 
-            'Comentario' => $request->Comentario,
-        ]);
+        $pelicula = Pelicula::findOrFail($id);
 
-        return redirect()->route('peliculas.show', $id)->with('success', 'Comentario agregado exitosamente.');
+        $comentario = new Comentario();
+        $comentario->id_pelicula = $pelicula->id;
+        $comentario->id_usuario = Auth::id();
+        $comentario->Comentario = $request->comentario;
+        $comentario->Fecha = now();
+        $comentario->save();
+
+        return redirect()->back()->with('success', 'Comentario publicado con éxito.');
     }
 }

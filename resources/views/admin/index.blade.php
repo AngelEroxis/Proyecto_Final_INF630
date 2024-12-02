@@ -182,6 +182,18 @@
 </header>
 
 <main>
+    @if(session('success'))
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            Swal.fire({
+                icon: 'success',
+                title: '¡Éxito!',
+                text: '{{ session('success') }}',
+                confirmButtonColor: '#00bcd4',
+            });
+        });
+    </script>
+    @endif
     <nav>
         <button onclick="showTab('peliculas')">CRUD PELÍCULAS</button>
         <button onclick="showTab('usuarios')">LISTA DE USUARIOS</button>

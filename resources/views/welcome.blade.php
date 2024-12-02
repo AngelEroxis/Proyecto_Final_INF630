@@ -163,7 +163,14 @@
             max-width: 800px;
             margin: 0 auto;
         }
-
+        #platforms div a {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            text-decoration: none;
+        }
+        #platforms div a:hover {
+            transform: scale(1.1);
+            opacity: 0.8;
+        }
     </style>
 </head>
 <body>
@@ -192,10 +199,34 @@
     </section>
     <section id="platforms">
         <h2>Plataformas populares</h2>
-        <div>
-            <a href="https://www.netflix.com/" target="_blank">Netflix</a>
-            <a href="https://www.amazon.com/Prime-Video/" target="_blank">Amazon Prime</a>
-            <!-- Añade más enlaces aquí -->
+        <div style="display: flex; justify-content: center; gap: 20px;">
+            <a href="https://www.netflix.com/" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" style="width: 100px; height: auto;">
+            </a>
+            <a href="https://www.amazon.com/Prime-Video/" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Prime_Video.png" alt="Amazon Prime Video" style="width: 100px; height: auto;">
+            </a>
+            <a href="https://www.disneyplus.com/" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg" alt="Disney Plus" style="width: 100px; height: auto;">
+            </a>
+            <a href="https://www.hbomax.com/" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/HBO_Max_Logo.svg" alt="HBO Max" style="width: 100px; height: auto;">
+            </a>
+            <a href="https://vix.com/" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/ViX_Logo.svg" alt="VIX" style="width: 100px; height: auto;">
+            </a>
+            <a href="https://pluto.tv/" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Pluto_TV_logo_2020.svg" alt="Pluto TV" style="width: 100px; height: auto;">
+            </a>
+            <a href="https://www.crunchyroll.com/" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Crunchyroll_Logo.svg" alt="Crunchyroll" style="width: 100px; height: auto;">
+            </a>
+            <a href="https://www.paramountplus.com/" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/90/Paramount_Pictures_Corporation_logo.svg" alt="Paramount Plus" style="width: 100px; height: auto;">
+            </a>
+            <a href="https://www.magictv.app/" target="_blank">
+                <img src="https://www.publico.es/vpn/wp-content/uploads/2024/07/channels4_profile-150x150.jpg" alt="Magic TV" style="width: 100px; height: auto;">
+            </a>
         </div>
     </section>
     <section class="peliculas-container" id="nuevos">

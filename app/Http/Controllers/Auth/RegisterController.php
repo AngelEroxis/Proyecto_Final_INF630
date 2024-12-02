@@ -31,7 +31,7 @@ class RegisterController extends Controller
         Auth::login($user);
 
         // Redirigir después del registro
-        return redirect('/home');  // Redirige a donde necesites
+        return redirect()->route('peliculas.index');
     }
 
     // Validador de los datos del formulario

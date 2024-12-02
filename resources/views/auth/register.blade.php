@@ -1,95 +1,136 @@
-<style>
-    /* Estilos generales para el formulario */
-form {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f7fc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
 
-/* Estilo de las etiquetas */
-form label {
-    font-size: 14px;
-    font-weight: bold;
-    margin-bottom: 5px;
-    display: block;
-    color: #333;
-}
+        .register-container {
+            background-color: white;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+        }
 
-/* Estilo para los campos de entrada */
-form input[type="text"], 
-form input[type="email"], 
-form input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0 20px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 14px;
-    box-sizing: border-box;
-}
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
 
-/* Estilo para el botón de envío */
-form button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    width: 100%;
-    transition: background-color 0.3s ease;
-}
+        .form-group {
+            margin-bottom: 15px;
+        }
 
-/* Efecto hover para el botón */
-form button:hover {
-    background-color: #0056b3;
-}
+        .form-group label {
+            font-size: 14px;
+            color: #333;
+        }
 
-/* Estilo para el contenedor de cada campo */
-form div {
-    margin-bottom: 15px;
-}
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
 
-/* Estilo para los mensajes de error */
-form .error {
-    color: red;
-    font-size: 12px;
-    margin-top: 5px;
-}
+        .form-group input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
 
-/* Estilo del formulario al estar en estado "activo" (cuando se hace foco en los inputs) */
-form input:focus {
-    border-color: #007bff;
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-}
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
 
-</style>
-<form method="POST" action="{{ route('register') }}">
-    @csrf
-    <div>
-        <label for="Nombre">Nombre:</label>
-        <input type="text" id="Nombre" name="Nombre" value="{{ old('Nombre') }}" required>
-    </div>
-    <div>
-        <label for="Email">Correo Electrónico:</label>
-        <input type="email" id="Email" name="Email" value="{{ old('Email') }}" required>
-    </div>
-    <div>
-        <label for="password">Contraseña</label>
-        <input type="password" name="password" id="password" required>
-    </div>
-    <div>
-        <label for="password_confirmation">Confirmar Contraseña</label>
-        <input type="password" name="password_confirmation" id="password_confirmation" required>
-    </div>
-    <div>
-        <label for="Rol">Rol:</label>
-        <input type="text" id="Rol" name="Rol" value="{{ old('Rol') }}" required>
-    </div>
-    <button type="submit">Registrar</button>
-</form>
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .alert {
+            padding: 10px;
+            background-color: #f8d7da;
+            color: #721c24;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .alert ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        .alert ul li {
+            list-style-type: none;
+        }
+
+        .alert ul li:before {
+            content: '❌ ';
+        }
+    </style>
+</head>
+<body>
+
+<div class="register-container">
+    <h2>Registro de Usuario</h2>
+    <form method="POST" action="{{ route('register') }}">
+        @csrf
+        <div class="form-group">
+            <label for="Nombre">Nombre:</label>
+            <input type="text" id="Nombre" name="Nombre" value="{{ old('Nombre') }}" required>
+        </div>
+        <div class="form-group">
+            <label for="Email">Correo Electrónico:</label>
+            <input type="email" id="Email" name="Email" value="{{ old('Email') }}" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Contraseña</label>
+            <input type="password" name="password" id="password" required>
+        </div>
+        <div class="form-group">
+            <label for="password_confirmation">Confirmar Contraseña</label>
+            <input type="password" name="password_confirmation" id="password_confirmation" required>
+        </div>
+        <div class="form-group">
+            <label for="Rol">Rol:</label>
+            <input type="text" id="Rol" name="Rol" value="usuario" readonly required>
+        </div>
+        <button type="submit">Registrar</button>
+    </form>
+
+    @if ($errors->any())
+        <div class="alert">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+</div>
+
+</body>
+</html>
